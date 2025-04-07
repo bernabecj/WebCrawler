@@ -1,23 +1,20 @@
-# 🐍 WebC rawler
+# 🐍 Web Crawler
 
 **Web Crawler** involves building a web crawler to extract the top 30 posts from Hacker News. The crawler will retrieve essential details such as the post number, title, points, and the number of comments for each entry in a wonderfull design.
-
-![TaskFlow UI Screenshot](https://via.placeholder.com/800x400.png?text=TaskFlow+Dashboard)
 
 ---
 
 ## 🧭 Table of Contents
 
+-   [URL](#URL)
 -   [Installation](#installation)
--   [Usage](#usage)
--   [Configuration](#configuration)
--   [Tech Stack](#tech-stack)
--   [Contributing](#contributing)
--   [Testing](#testing)
--   [License](#license)
--   [Acknowledgments](#acknowledgments)
 
 ---
+
+## 🌐 URL
+
+To see the web page, please use the following url:
+[Web Crawler.]()
 
 ## 🚀 Installation
 
