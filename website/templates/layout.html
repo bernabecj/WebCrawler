@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>Web Crawler</title>
 
         <!-- CND links -->
         <link
@@ -24,6 +24,19 @@
         <link
             href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.css"
             rel="stylesheet"
+        />
+
+        <!-- Static links -->
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='css/main.css') }}"
+        />
+
+        <!-- icon image -->
+        <link
+            rel="icon"
+            type="image/x-icon"
+            href="{{ url_for('static', filename='img/snake.png') }}"
         />
     </head>
     <body>
