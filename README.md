@@ -16,7 +16,7 @@
 
 ## 🎨 Preview
 
-![image](https://github.com/user-attachments/assets/54a2ffbf-93c7-4ffb-b27e-42f4579361c0)
+[![image](https://github.com/user-attachments/assets/54a2ffbf-93c7-4ffb-b27e-42f4579361c0)](http://35.196.113.151:5200)
 
 ## 🌐 URL
 
