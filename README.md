@@ -7,6 +7,7 @@
 ## 🧭 Table of Contents
 
 -   [URL](#URL)
+
 -   [Installation](#installation)
 
 ---
@@ -14,6 +15,7 @@
 ## 🌐 URL
 
 To see the web page, please use the following url:
+
 [Web Crawler.]()
 
 ## 🚀 Installation
@@ -21,9 +23,16 @@ To see the web page, please use the following url:
 Make sure you have **Python 3.10+** and **pip** installed.
 
 ```bash
-git clone https://github.com/bernabecj/WebCrawler.git
-cd WebCrawler
-python -m venv .venv
-source venv/bin/activate  # or venv\Scripts\activate on Windows
-pip install -r requirements.txt
+
+git  clone  https://github.com/bernabecj/WebCrawler.git
+
+cd  WebCrawler
+
+python  -m  venv  .venv
+
+source  venv/bin/activate  # or venv\Scripts\activate on Windows
+
+pip  install  -r  requirements.txt
+
+python app.py
 ```

@@ -89,7 +89,7 @@ class WCTestingClass(TestCase):
 
         # # Simulate typing into the search bar
         searchbar_ele.clear()
-        searchbar_ele.send_keys("gp")
+        searchbar_ele.send_keys("g")
 
         self.wait.until(
             EC.presence_of_all_elements_located(
@@ -121,7 +121,7 @@ class WCTestingClass(TestCase):
                 self.assertTrue(
                     is_descending, "Points are not in descending order after filtering"
                 )
-        time.sleep(3)
+        time.sleep(1)
 
     def test_filtering_more_than_five_words(self):
         # Start a test client to serve the app locally
@@ -170,4 +170,4 @@ class WCTestingClass(TestCase):
                 self.assertTrue(
                     is_descending, "Points are not in descending order after filtering"
                 )
-        time.sleep(3)
+        time.sleep(1)
