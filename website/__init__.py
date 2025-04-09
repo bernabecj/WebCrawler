@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 
 # Load environment variables from .env file production or development
-load_dotenv(dotenv_path=".env_files/.env.dev")
+load_dotenv(dotenv_path=".env")
 
 app = Flask(__name__)
 admin = Admin()
@@ -15,7 +15,6 @@ def create_app(debug=False):
     # Llave secreta
     app.debug = debug
     app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
-    app.config["SECRET_KEY"] = "dsadasdgdg"
 
     from .main import main as main_blueprint
     from .routes import routes as routes_blueprint
