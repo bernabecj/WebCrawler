@@ -10,6 +10,8 @@
 
 -   [Installation](#installation)
 
+-   [Preview](#preview)
+
 ---
 
 ## 🌐 URL
@@ -36,3 +38,5 @@ pip  install  -r  requirements.txt
 
 python app.py
 ```
+
+## 🎨 Preview
