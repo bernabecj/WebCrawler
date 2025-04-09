@@ -9,6 +9,9 @@ from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 from website import create_app  # Make sure your create_app() returns a Flask instance
 
+# CONSTANTS
+PORT_NUMNER = 5200  # Port number for the Flask app
+
 
 class WCTestingClass(TestCase):
     """
@@ -38,8 +41,8 @@ class WCTestingClass(TestCase):
     def create_app(self):
         app = create_app()
         app.config["TESTING"] = True
-        app.config["LIVESERVER_PORT"] = 5100  # Optional: set a fixed port
-        app.config["SERVER_NAME"] = "localhost:5100"
+        app.config["LIVESERVER_PORT"] = PORT_NUMNER
+        app.config["SERVER_NAME"] = f"localhost:{PORT_NUMNER}"
         return app
 
     # this function simulates a user opening the website in a browser and the elements he can see
