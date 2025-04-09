@@ -22,7 +22,7 @@
 
 To see the web page, please use the following url:
 
-[Web Crawler.](http://35.196.113.151:5200)
+[Web Crawler.](http://35.227.33.24:5200)
 
 ## 🚀 Installation
 
