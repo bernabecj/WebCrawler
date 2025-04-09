@@ -1,9 +1,14 @@
 {% extends 'layout.html' %} {% block body %}
 
 <div class="row d-flex vh-100 main-wrapper m-0">
-    <nav class="col-md-4 sidebar h-auto d-flex flex-column p-3 shadow-sm">
+    <nav
+        id="sidebar"
+        class="col-md-4 sidebar h-auto d-flex flex-column p-3 shadow-sm"
+    >
         <a href="#" class="navbar-brand mb-4 mx-3">
-            <span class="fw-bolder fs-4 logo-text">🐍 Web Crawler</span>
+            <span id="webpage-title" class="fw-bolder fs-4 logo-text"
+                >🐍 Web Crawler</span
+            >
         </a>
 
         <ul class="nav nav-pills flex-column mb-auto sidebar-nav">
@@ -148,7 +153,7 @@
                                 </h6>
                             </div>
                             <div class="col-md-3 right-items text-md-end">
-                                <p class="fw-bold mb-1">
+                                <p class="points fw-bold mb-1">
                                     {{ item.points }} points
                                 </p>
                                 <span class="badge tag-badge tag-comments"
