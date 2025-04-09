@@ -148,9 +148,11 @@
                                 <i class="news-icon fa-solid fa-newspaper"></i>
                             </div>
                             <div class="col">
-                                <h6 class="card-title mb-0 semi-bold">
-                                    {{ item.rank }}. {{ item.title }}
-                                </h6>
+                                <a href="{{ item.link }}" target="_blank">
+                                    <h6 class="card-title mb-0 semi-bold">
+                                        {{ item.rank }}. {{ item.title }}
+                                    </h6>
+                                </a>
                             </div>
                             <div class="col-md-3 right-items text-md-end">
                                 <p class="points fw-bold mb-1">
