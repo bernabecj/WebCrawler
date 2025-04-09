@@ -66,5 +66,4 @@ class Index(View):
                 }
             )
 
-        print(items[0])
         return render_template(self.template, items=items)
