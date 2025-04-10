@@ -72,11 +72,11 @@ body {
     transition: color 0.2s ease;
 }
 
-.upgrade-section {
+.up-to-date-section {
     background-color: var(--custom-light-purple);
 }
 
-.upgrade-section h5 {
+.up-to-date-section h5 {
     color: var(--custom-text-dark);
 }
 

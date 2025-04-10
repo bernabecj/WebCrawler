@@ -1,30 +1,33 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Sort by date or name
+    // === Handle Sorting Option Clicks ===
     document.querySelectorAll(".sort-option").forEach((item) => {
         item.addEventListener("click", function (e) {
             e.preventDefault();
+
+            // --- Get selected sort value and update the display ---
             const value = this.getAttribute("data-value");
             document.getElementById("currentSort").textContent = value;
         });
     });
 
-    // on change of the search input
+    // === Handle Live Search & Filtering ===
     const searchInput = document.querySelector("#searchInput");
 
-    // track input event
+    // --- Listen for user typing in the search bar ---
     searchInput.addEventListener("input", function () {
-        // Clean the search term: remove non-word characters and trim spaces
+        // === Prepare and clean the search term ===
         const searchTerm = searchInput.value
             .toLowerCase()
-            .replace(/[^\w\s]/g, "")  // Remove symbols and punctuation
+            .replace(/[^\w\s]/g, "")  // Remove punctuation and symbols
             .trim();
 
         const container = document.querySelector(".news-listings");
         const cards = Array.from(container.querySelectorAll(".news-card"));
 
-        const cleanText = (text) => text.replace(/[^\w\s]/g, "").trim(); // Remove symbols from titles
+        // --- Helper function to clean text ---
+        const cleanText = (text) => text.replace(/[^\w\s]/g, "").trim();
 
-        // Extract card data (title, points, comments, etc.)
+        // === Collect data from each card ===
         const cardData = cards.map((card) => {
             const titleEl = card.querySelector(".card-title");
             const pointsEl = card.querySelector(".fw-bold");
@@ -44,48 +47,49 @@ document.addEventListener("DOMContentLoaded", function () {
             };
         });
 
-        // If the search input is empty, reset all cards to their original state
+        // === If input is empty, reset cards to original order ===
         if (searchTerm === "") {
             let sortedCardsByTitle = cardData.sort((a, b) => {
                 const numA = parseInt(a.title.split(" ")[0]);
                 const numB = parseInt(b.title.split(" ")[0]);
-            
                 return numA - numB;
             });
 
-            // Hide all cards first
+            // --- Hide all cards ---
             cards.forEach((card) => card.style.display = "none");
 
-            // Show only the matching and sorted cards
+            // --- Reattach and show sorted cards in original order ---
             sortedCardsByTitle.forEach((item) => {
                 item.element.style.display = "block";
-                container.appendChild(item.element);  // Reattach them to reorder
+                container.appendChild(item.element);
             });
 
-            return; 
+            return;
         }
 
-        // Filter cards based on whether the title contains the search term
+        // === Filter cards by whether their title includes the search term ===
         const filteredCards = cardData.filter((item) =>
             item.title.toLowerCase().includes(searchTerm)
         );
 
-        // Separate and sort based on word count condition of the search term
+        // === Sort logic based on number of words in search term ===
+        const searchWordCount = searchTerm.split(/\s+/).length;
+
         let sortedCards;
-        const searchWordCount = searchTerm.split(/\s+/).length;  // Count words in the searchTerm
         if (searchWordCount > 5) {
+            // --- Sort by number of comments if more than 5 words ---
             sortedCards = filteredCards.sort((a, b) => b.comments - a.comments);
         } else {
+            // --- Sort by number of points if 5 or fewer words ---
             sortedCards = filteredCards.sort((a, b) => b.points - a.points);
         }
 
-        // Hide all cards first
+        // === Display the sorted and filtered cards ===
         cards.forEach((card) => card.style.display = "none");
 
-        // Show only the matching and sorted cards
         sortedCards.forEach((item) => {
             item.element.style.display = "block";
-            container.appendChild(item.element);  // Reattach them to reorder
+            container.appendChild(item.element);
         });
     });
 });

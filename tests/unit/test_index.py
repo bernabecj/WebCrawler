@@ -1,10 +1,11 @@
+# === Imports and Setup ===
 import os
 import unittest
 from unittest.mock import patch
 from flask import Flask
 from website.main import views
 
-# CONSTANTS
+# === Mock HTML Content for Testing ===
 MOCK_HTML = """
 <html>
   <body>
@@ -29,9 +30,10 @@ MOCK_HTML = """
 """
 
 
+# === Unit Test Class for the Index View ===
 class TestIndexView(unittest.TestCase):
     def setUp(self):
-        # Point Flask to the correct template directory
+        # === Set up Flask test app and route ===
         template_dir = os.path.abspath("website/templates")
         self.app = Flask(__name__, template_folder=template_dir)
         self.app.add_url_rule("/", view_func=views.Index.as_view("index"))
@@ -39,19 +41,20 @@ class TestIndexView(unittest.TestCase):
 
     @patch("website.main.views.requests.get")
     def test_index_view(self, mock_get):
-        # Mock the response from requests.get
+        # === Mock external HTTP request to return test HTML ===
         mock_get.return_value.status_code = 200
         mock_get.return_value.text = MOCK_HTML
 
-        # Make GET request
+        # === Make request to Flask route ===
         response = self.client.get("/")
 
-        # Check response
+        # === Validate response contains expected content ===
         self.assertEqual(response.status_code, 200)
         self.assertIn(b"Example Title", response.data)
         self.assertIn(b"123 points", response.data)
         self.assertIn(b"42 comments", response.data)
 
 
+# === Run the unit tests ===
 if __name__ == "__main__":
     unittest.main()
